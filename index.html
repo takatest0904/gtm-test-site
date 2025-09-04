@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTMテストサイト</title>
+
+  <!-- ✅ Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX'); 
+  </script>
+  <!-- ✅ ↑ あなたのGTMコンテナIDに置き換え -->
+
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    .section { margin: 60px 0; }
+    button { padding: 12px 20px; font-size: 16px; cursor: pointer; }
+    form { display: flex; flex-direction: column; width: 300px; }
+    form input, form button { margin-top: 10px; padding: 10px; }
+    .spacer { height: 1200px; background: linear-gradient(white, lightgray); }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End GTM (noscript) -->
+
+  <h1>GTMトリガーテスト用サイト</h1>
+
+  <!-- All Pages テスト -->
+  <div class="section">
+    <h2>1. All Pages（ページ読み込み）</h2>
+    <p>ページ読み込み時に発火するタグが動作するか確認できます。</p>
+  </div>
+
+  <!-- クリックトリガー -->
+  <div class="section">
+    <h2>2. クリックトリガー</h2>
+    <button id="test-click">ここをクリック</button>
+  </div>
+
+  <!-- スクロールトリガー -->
+  <div class="section">
+    <h2>3. スクロールトリガー</h2>
+    <p>下にスクロールしてテストしてください。</p>
+    <div class="spacer"></div>
+  </div>
+
+  <!-- フォーム送信トリガー -->
+  <div class="section">
+    <h2>4. フォーム送信トリガー</h2>
+    <form id="test-form">
+      <input type="text" placeholder="名前を入力" required />
+      <input type="email" placeholder="メールアドレス" required />
+      <button type="submit">送信</button>
+    </form>
+  </div>
+
+  <!-- カスタムイベント -->
+  <div class="section">
+    <h2>5. カスタムイベント（test_event）</h2>
+    <button onclick="dataLayer.push({'event':'test_event'}); alert('test_event 発火！');">
+      カスタムイベント送信
+    </button>
+  </div>
+</body>
+</html>
